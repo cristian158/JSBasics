@@ -174,3 +174,36 @@ function caseInSwitch(val) {
 }
 caseInSwitch(1);					// returns 'alpha' after inputting '1'
 									// 4 & 5 returns 'etc'
+
+
+function isLess(a, b) {
+    return a < b;
+}
+isLess(10, 15);						// returns true
+
+
+function myFun() {
+  console.log("Hello");				// displays in ythe console
+  return "World";					// returns the string 'World'
+  console.log("byebye")				// won't display, func exits at return
+}
+myFun();
+
+
+
+var count = 0;
+function cc(card) {					// blackjackish, create card counting table
+	if (card >= 7 && card <= 9) {
+		count += 0;
+	} else if (card >= 2 && card <= 6) {
+		count++;
+	} else {
+		count--;
+	}
+	if (count <= 0) {
+		return count + " Hold";
+	} else {
+		return count + " Bet";
+	}
+}
+cc(2); cc(3); cc(7); cc('K'); cc('A');	// for a sequence of cards
