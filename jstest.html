@@ -2,18 +2,22 @@
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<title></title>
-
+		<title>Whatevah</title>
 	</head>
 	<body>
-		<p>I'll atempt to imitate the fontSize change using JS.</p>
-		<button onclick='change()''>Try it!</button>
+		<p>I'll atempt to imitate the fontSize change using JS DOM.</p>
+		<button onclick='change()'>Try it!</button>
 		<div id='myDIV' class="">
 			<p>I'm a DIVa</p>
 		</div>
 		<div class="">
 			<p>I'm a DIVa</p>
 		</div>
+
+		<p>And for my next trick I'll create a variable, assign a value to it
+		and display it without apparent changes:</p>
+
+		<p id='var'></p>
 		<script>
 			function change() {
 				x = document.getElementsByTagName('div')[0];		// maybe better to define as var x
@@ -21,7 +25,10 @@
 					x.style.fontSize = '30px';
 				}
 			}
-
+			// different script
+			var create = 'Voilá!', crear = 'Aquí está!';			// one statement, many vars
+			document.getElementById('var').innerHTML = create +
+			' ' + crear;											// write couple of vars
 		</script>
 	</body>
 </html>
