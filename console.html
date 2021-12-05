@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <p onClick='makeGreen()'>xBREAKxDOWNx</p>
+
+
+  <script defer>
+
+    const dogs = [{name: 'Snicks', age: 4}, {name: 'Julian', age: 6}];
+
+    function makeGreen(){
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // classic, regular
+    console.log('jelo');
+
+    // interpolated
+    console.log('jei am a %s string!', 'kk');
+    // console.log(`jei am a ${} string!`);
+
+    // styled
+    console.log('%c am some text', 'font-size:60px;background:red');
+
+    // warn, yelow triangle
+    console.warn('Opps i didit again');
+
+    // error, red icon with stack trace
+    console.error('Shieeeet!');
+
+    // info
+    console.info('Fun fact: i don giva fack');
+
+    // testing, fires assertion only when False
+    console.assert(1 === 2, 'nigga pleeea');
+
+    // clear
+    console.clear();
+
+    // view DOM e's
+    // console.dir(p);
+
+    console.clear(); // clean up
+
+    // grouping together
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    })
+
+
+    // counting
+    console.count('random');
+
+    // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/cristin158')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data)
+      });
+
+      console.table(dogs)
+
+  </script>
+</body>
+</html>
