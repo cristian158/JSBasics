@@ -24,12 +24,12 @@ function updateRecords(records, id, prop, value) {
 	var tracklist = records[id].tracks;
 	var artisty = records[id].artist;
 	if (tracklist){	tracklist.push(value);}
-	else {
+	else if (tracklist == false){
 		records[id].tracks = [];
 		records[id].tracks.push(value);
-	};
-	// if (value == ""){ delete records[id].prop}
+	} else if (prop != tracklist && value != "") { records[id].prop = value };
 	return records;
+	// if (value == ""){ delete records[id].prop}
 }
 
 
@@ -44,3 +44,19 @@ console.log(recordCollection);
 // updateRecords(recordCollection, 2548, "artist", ""), artist should not be set
 // updateRecords(recordCollection, 2548, "tracks", ""), tracks should not be set
 // updateRecords(recordCollection, 1245, "albumTitle", "Riptide"), albumTitle should be the string Riptide
+
+//
+// If prop isn't tracks and value isn't an empty string, update or set that album's prop to value.
+// if (prop != tracks && value != "") { records[id].prop = value }
+//
+//
+// If prop is tracks but the album doesn't have a tracks property, create an empty array and add value to it.
+// if (prop == tracks && records[id].tracks == false) {records[id].tracks = []; records[id].tracks.push(value);
+//
+//
+// If prop is tracks and value isn't an empty string, add value to the end of the album's existing tracks array.
+// if (prop == tracks && value != '') { tracklist.push(value)}
+//
+//
+// If value is an empty string, delete the given prop property from the album.
+// if (value="") {delete records.prop}

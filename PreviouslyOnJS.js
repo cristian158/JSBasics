@@ -4,6 +4,20 @@ firstLetterOfLastName = lastName[0];
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+var a = 0
+var b = 15
+var a = b++
+console.log(a); // gives 15
+console.log(b); // gives 16
+
+var c = 0
+var d = 10
+var c = ++b
+console.log(c); // gives 11
+console.log(d); // gives 11
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
 var myStr = "Jello World";
 myStr = "Hello World";
 
