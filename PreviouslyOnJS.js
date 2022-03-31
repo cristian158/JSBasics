@@ -18,8 +18,8 @@ console.log(d); // gives 11
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-var myStr = "Jello World";
-myStr = "Hello World";
+var myStr = "Jello World"
+myStr = "Hello World"         // change value of var   
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -37,12 +37,11 @@ var wordBlanks = "My " + myNoun + " is " + myAdjective + ' and ' + myVerb + " ov
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 var myArray = [["John", 23], ["dog", 3]];
-var removedFromMyArray = myArray.shift(); // removes [0]
-var removedFromMyArray = myArray.pop();   // removes [-1]
+var removedFromMyArray1 = myArray.shift(); // removes [0] and gives it to removed...1
+var removedFromMyArray1 = myArray.pop();   // removes [-1] and gives it to removed...1
 
-var myArray = [["John", 23], ["dog", 3]];
-myArray.unshift(["Paul", 35])             // adds element at the beginning
-myArray.push(["Paul", 35])                // adds element at the end
+myArray.unshift(["Paul", 35])             // adds element at [0]
+myArray.push(["Paul", 35])                // adds element at [-1]
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -50,9 +49,10 @@ function myLocalScope() {
   // var or const seem to work
   const myVar = "fa";
   console.log('inside myLocalScope', myVar); // outputs completely and correctly
+                                             // output: inside myLocalScope fa
 }
 myLocalScope();
-console.log('outside myLocalScope', myVar); // gives error
+console.log('outside myLocalScope', myVar); // gives error, myVar is not defined
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -75,8 +75,8 @@ function addThree() {
 function addFive() {
   sum += 5;
 }
-addThree();           // returns value of undefined cause lack of return statement, changes global 'sum'
-addFive();            // returns value of undefined cause lack of return statement, changes global 'sum'
+addThree();           // returns undefined cause no return statement, changes global 'sum'
+addFive();            // returns undefined cause no return statement, changes global 'sum'
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -84,7 +84,8 @@ var processed = 0;
 function processArg(num) {
   return (num + 3) / 5;
 }
-processed = processArg(7);
+processed = processArg(7);  // change global value of processed to 2
+                            // if it was const, would give error
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -94,10 +95,8 @@ function nextInLine(arr, item) {
   return item;                    //returns removed item
 }
 var testArr = [1,2,3,4,5];
-// Display code
-console.log("Before: " + JSON.stringify(testArr));
-console.log(nextInLine(testArr, 6));
-console.log("After: " + JSON.stringify(testArr));
+
+console.log(nextInLine(testArr, 6)); // adds 6 at the end, removes 1 and returns 1
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -113,12 +112,12 @@ testEqual(10);
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 function testLogicalAnd(val) {
-  if (val<=50 && val>=25) {       // yes if lessequal 50 or greaterequal 25; (25 <= val <= 50);
+  if (val<=50 && val>=25) {       // if (25 <= val <= 50);
       return "Yes";
   }
   return "No";
 }
-testLogicalAnd(10);
+testLogicalAnd(10);               // returns No 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -128,7 +127,9 @@ function testLogicalOr(val) {
   }
   return "Inside";
 }
-testLogicalOr(15);
+testLogicalOr(15);                // inside
+testLogicalOr(5);                 // outside
+testLogicalOr(25);                // outside
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -140,9 +141,26 @@ function testElse(val) {
     result = "5 or Smaller";
   }
   return result;
-}Five
-testElse(4);
+}
+testElse(4);             // returns '5 or Smaller'
+------------------------------------------------
+// Simpler option
+function testElse(val){
+    if (val >5){
+        return "Bigger than 5"
+    } else {
+        return "5 or Smaller"
+    }
+}
 
+function Else(val){
+    if (val>5) return "Hola";
+    else return "chao";
+}
+
+ function Elsa(val){
+    if (val>5) return "hola"; else return "chao"
+ }
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 function testElseIf(val) {
@@ -153,17 +171,24 @@ function testElseIf(val) {
     return "Smaller than 5";
   }
   else {
-  return "Between 5 and 10";
+    return "Between 5 and 10";
   }
 }
 testElseIf(7);
+
 // OR
 function testElseIf(val) {
-  if (val > 10) {return "Greater than 10";}
-  else if (val < 5) {return "Smaller than 5";}
-  else {return "Between 5 and 10";}
+    if (val > 10) {return "Greater than 10";}
+    else if (val < 5) {return "Smaller than 5";}
+    else {return "Between 5 and 10";}
 }
 testElseIf(7);						// returns 'Between 5 and 10'
+
+// OR
+function ElseIf(val){
+    if (val>10) return "greater"; else if (val<5) return "smaller"; else return "between"
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -172,8 +197,8 @@ function orderMyLogic(val) {		// order of statements, matter
   else if (val < 10) {return "Less than 10";}
   else {return "Greater than or equal to 10";}
 }
-orderMyLogic(7);					//returns 'Less than 10'
-
+orderMyLogic(2);					// returns 'Less than 5'
+                                    // if statements inversed would b 'Less than 10'
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 var names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
@@ -239,14 +264,14 @@ function sequentialSizes(val) {
 function isLess(a, b) {
     return a < b;
 }
-isLess(10, 15);						// returns true, avoids if else statement chain
+isLess(10, 15);	     					// returns true, avoids 'if else' statement chain
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 function myFun() {
-  console.log("Hello");				// displays in the console
-  return "World";					// returns the string 'World'
-  console.log("byebye")				// won't display, func exits at return
+    console.log("Hello");				// displays in the console
+    return "World"; 					// returns the string 'World'
+    console.log("byebye")				// won't display, func exits at return
 }
 myFun();
 
