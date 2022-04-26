@@ -133,7 +133,7 @@ testLogicalOr(25);                // outside
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-function testElse(val) {
+function Elsa1(val) {
   var result = "";
   if (val > 5) {
     result = "Bigger than 5";
@@ -142,25 +142,32 @@ function testElse(val) {
   }
   return result;
 }
-testElse(4);             // returns '5 or Smaller'
+Elsa1(4);             // returns '5 or Smaller'
 ------------------------------------------------
-// Simpler option
-function testElse(val){
+
+function Else2(val){
     if (val >5){
         return "Bigger than 5"
     } else {
         return "5 or Smaller"
     }
 }
+------------------------------------------------
 
-function Else(val){
+function Else3(val){
     if (val>5) return "Hola";
     else return "chao";
 }
+------------------------------------------------
 
- function Elsa(val){
+function Elsa4(val){
     if (val>5) return "hola"; else return "chao"
- }
+}
+------------------------------------------------
+
+function Elsa5(val) {
+    return (val>4) ? 'hola' : 'chao'
+}
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 function testElseIf(val) {
@@ -320,15 +327,17 @@ delete myDog.legs;					// deletes property 'legs'
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 var someObj = {						// obj
-  propName: "John"					// proName property of value "John"
+  propName: "John"					// propName property of value "John"
 };
-function propPrefix(str) {			// argument str
+function propPrefix(str) {			
   var s = "prop";
-  return s + str;					// returns "propstr"
+ return s + str;					// returns "propstr"
 }
 var someProp = propPrefix("Name");	// == 'propName'
-console.log(someObj[someProp]);		// someObj.propName; displays string 'John' in the console
-
+console.log(someObj[someProp]);		// someObj.propName; returns 'John' 
+//
+// function propPrefix(str){ return "prop" + str } // same result
+//
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 const testObj = {
@@ -345,8 +354,8 @@ const myDog = {
   "name": "Coder",
   "legs": 4,
   "tails": 1,
-  "friends": ["freeCodeCamp Campers"]
-};
+  "friends": ["freeCodeCamp Campers"]     // we can update myDog.friends.push('artho')
+};                                        // 
 // two ways of updating a property's value of an Object
 myDog.name = "Happy Coder";
 myDog['name'] = 'Happy Coder';
@@ -416,7 +425,7 @@ function phoneticLookup(val) {
   result = lookup[val];
   return result;
 }
-phoneticLookup("charlie");
+phoneticLookup("charlie");                     // return "Chicago"
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -439,7 +448,7 @@ function checkObj(obj, checkProp) {
 function checkObj(obj, checkProp) {
  return (obj.hasOwnProperty(checkProp)) ? obj[checkProp] : "Not Found";
 
- ///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
 
 const myMusic = [
   {
@@ -478,7 +487,8 @@ const myMusic = [
      }
    }
  };
-const gloveBoxContents = myStorage.car.inside['glove box']; // returns 'maps'
+const gloveBoxContents = myStorage.car.inside['glove box']; // assign value 'maps' to
+                                                            // gloveBoxContents
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -501,7 +511,8 @@ const myPlants = [
   }
 ];
 
-const secondTree = myPlants[1].list[1]; // to access 'pine'
+const secondTree = myPlants[1].list[1]; // assigns value 'pine' to secondTreu
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 
